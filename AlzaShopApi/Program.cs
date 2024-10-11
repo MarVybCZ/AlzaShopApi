@@ -82,15 +82,15 @@ namespace AlzaShopApi
 			{
 				app.UseSwagger();
 				app.UseSwaggerUI();
-			}
-
-			ConfigureDB(app);
+			}			
 
 			app.UseHttpsRedirection();
 
 			app.UseAuthorization();
 
 			app.MapControllers();
+
+			ConfigureDB(app);
 
 			app.Run();
 		}

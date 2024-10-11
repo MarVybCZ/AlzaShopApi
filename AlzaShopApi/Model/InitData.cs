@@ -1,16 +1,23 @@
 ﻿namespace AlzaShopApi.Model
 {
+	/// <summary>
+	/// Provides methods for initializing the database with test or default products.
+	/// </summary>
 	public static class InitData
 	{
+		/// <summary>
+		/// Initializes the database with test or default products if no products exist.
+		/// </summary>
+		/// <param name="context">The database context.</param>
 		public static void Initialize(AlzaShopDbContext context)
 		{
-			// Pokud již existují produkty, inicializace není potřeba
+			// If there are already products, initialization is not needed
 			if (context.Products.Any())
 			{
 				return;
 			}
 
-			// Vložení testovacích nebo výchozích produktů
+			// Insert test or default products
 			context.Products.AddRange(
 				new Product
 				{
@@ -35,7 +42,7 @@
 				}
 			);
 
-			// Uložení změn do databáze
+			// Save changes to the database
 			context.SaveChanges();
 		}
 	}
