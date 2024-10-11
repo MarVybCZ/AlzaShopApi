@@ -1,5 +1,8 @@
 ﻿namespace AlzaShopApi.Model
 {
+	/// <summary>
+	/// Represents a product in the AlzaShop API.
+	/// </summary>
 	public class Product
 	{
 		/// <summary>
@@ -10,12 +13,12 @@
 		/// <summary>
 		/// Gets or sets the name of the product.
 		/// </summary>
-		public string Name { get; set; }
+		public string Name { get; set; } = null!;
 
 		/// <summary>
 		/// Gets or sets the image URI of the product.
 		/// </summary>
-		public string ImgUri { get; set; }
+		public string ImgUri { get; set; } = null!;
 
 		/// <summary>
 		/// Gets or sets the price of the product.
@@ -25,6 +28,6 @@
 		/// <summary>
 		/// Gets or sets the description of the product.
 		/// </summary>
-		public string Description { get; set; }
+		public string? Description { get; set; }
 	}
 }

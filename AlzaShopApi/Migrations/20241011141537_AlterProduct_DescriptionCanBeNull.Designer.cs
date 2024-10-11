@@ -3,6 +3,7 @@ using AlzaShopApi.Model;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AlzaShopApi.Migrations
 {
     [DbContext(typeof(AlzaShopDbContext))]
-    partial class AlzaShopDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241011141537_AlterProduct_DescriptionCanBeNull")]
+    partial class AlterProduct_DescriptionCanBeNull
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
