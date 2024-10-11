@@ -1,5 +1,6 @@
 
 using AlzaShopApi.Model;
+using AlzaShopApi.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.OpenApi.Models;
@@ -68,7 +69,9 @@ namespace AlzaShopApi
 			// Add services to the container.
 			builder.Services.AddControllers();
 
-			builder.Services.AddDbContext<AlzaShopDbContext>(options => options.UseSqlServer(connectionString));			
+			builder.Services.AddDbContext<AlzaShopDbContext>(options => options.UseSqlServer(connectionString));
+
+			builder.Services.AddTransient<IProductService, ProductService>();
 
 			builder = AddSwagger(builder);
 
