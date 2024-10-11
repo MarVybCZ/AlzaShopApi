@@ -5,8 +5,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AlzaShopApi.Controllers
 {
+	/// <summary>
+	/// Represents a controller for managing products.
+	/// </summary>
 	[ApiController]
-	[Route("api/[controller]")]
+	[Route("api/[controller]")]	
 	public class ProductController : ControllerBase
 	{
 		private readonly AlzaShopDbContext _context;

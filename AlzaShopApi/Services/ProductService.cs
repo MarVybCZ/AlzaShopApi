@@ -25,7 +25,7 @@ namespace AlzaShopApi.Services
 		/// </summary>
 		/// <param name="id">The ID of the product.</param>
 		/// <returns>The product with the specified ID.</returns>
-		public async Task<Product> GetProduct(int id)
+		public async Task<Product?> GetProduct(int id)
 		{
 			return await _context.Products.FindAsync(id);
 		}

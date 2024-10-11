@@ -9,8 +9,16 @@ using System.Runtime.CompilerServices;
 
 namespace AlzaShopApi
 {
+	/// <summary>
+	/// Program class.
+	/// </summary>
 	public class Program
 	{
+		/// <summary>
+		/// Adds Swagger configuration to the web application builder.
+		/// </summary>
+		/// <param name="builder">The web application builder.</param>
+		/// <returns>The updated web application builder.</returns>
 		private static WebApplicationBuilder AddSwagger(WebApplicationBuilder builder)
 		{
 			// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -35,25 +43,26 @@ namespace AlzaShopApi
 			return builder;
 		}
 
+		/// <summary>
+		/// Configures the database for the application.
+		/// </summary>
+		/// <param name="app">The application builder.</param>
 		public static void ConfigureDB(IApplicationBuilder app)
 		{
-			// Ostatní konfigurace...
-
-			// Získání scope pro pøístup k databázi
-			using (var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
+			using (var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>()!.CreateScope())
 			{
 				var context = serviceScope.ServiceProvider.GetRequiredService<AlzaShopDbContext>();
 
-				// Provádìní migrací (automatické vytvoøení DB)
 				context.Database.Migrate();
 
-				// Volání metody pro naplnìní výchozími daty
 				InitData.Initialize(context);
 			}
-
-			// Ostatní konfigurace (Swagger, Routing, etc.)
 		}
 
+		/// <summary>
+		/// The entry point of the application.
+		/// </summary>
+		/// <param name="args">The command-line arguments.</param>
 		public static void Main(string[] args)
 		{
 			var builder = WebApplication.CreateBuilder(args);
@@ -82,7 +91,7 @@ namespace AlzaShopApi
 			{
 				app.UseSwagger();
 				app.UseSwaggerUI();
-			}			
+			}
 
 			app.UseHttpsRedirection();
 

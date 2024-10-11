@@ -8,7 +8,7 @@ namespace AlzaShopApi.Tests
 	[TestClass]
 	public class ProductServiceTests
 	{
-		private DbContextOptions<AlzaShopDbContext> _options;
+		private DbContextOptions<AlzaShopDbContext> _options = null!;
 
 		[TestInitialize]
 		public void Setup()
@@ -77,8 +77,8 @@ namespace AlzaShopApi.Tests
 				var product6 = await productService.GetProduct(6);
 
 				// Assert				
-				Assert.IsTrue(product1.Name == "Test Product 1");
-				Assert.IsTrue(product6.Name == "Test Product 6");
+				Assert.IsTrue(product1!.Name == "Test Product 1");
+				Assert.IsTrue(product6!.Name == "Test Product 6");
 			}
 		}
 
@@ -91,11 +91,11 @@ namespace AlzaShopApi.Tests
 
 				var product = await productService.GetProduct(1);
 
-				product.Description = "Updated description";
+				product!.Description = "Updated description";
 
 				var updatedProduct = await productService.UpdateProductDescription(product);
 
-				Assert.IsTrue(updatedProduct.Description == "Updated description");
+				Assert.IsTrue(updatedProduct!.Description == "Updated description");
 			}
 		}
 

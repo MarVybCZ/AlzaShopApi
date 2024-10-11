@@ -13,7 +13,7 @@ namespace AlzaShopApi.Services
 		/// </summary>
 		/// <param name="id">The ID of the product.</param>
 		/// <returns>The product with the specified ID.</returns>
-		Task<Product> GetProduct(int id);
+		Task<Product?> GetProduct(int id);
 
 		/// <summary>
 		/// Retrieves a list of products with pagination support.
